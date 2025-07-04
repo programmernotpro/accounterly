@@ -1,0 +1,36 @@
+input {
+    display:block;
+    margin: 10px;
+}
+#main {
+    top:0;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+p {
+    font-family: "Merienda", cursive;
+}
+h1 {
+    font-family: "Merienda", cursive;
+}
+
+button[type="submit"]{
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    height: 25px;
+    width:60px;
+    border:none;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.8;
+    box-shadow: 10px 3px 5px -4px rgba(0,0,0,0.18);
+}
+
+body {
+    background: radial-gradient(circle at 60% 40%, #e0eafc 0%, #cfdef3 100%);
+}
