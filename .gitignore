@@ -1,0 +1,26 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# VS Code settings folder
+.vscode/
+
+# Build output folders (common in JS projects)
+dist/
+build/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: lock files (sometimes ignored, but usually good to keep)
+# package-lock.json
+# yarn.lock
