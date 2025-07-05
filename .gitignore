@@ -22,5 +22,5 @@ out/
 Thumbs.db
 
 # Optional: lock files (sometimes ignored, but usually good to keep)
-# package-lock.json
-# yarn.lock
+package-lock.json
+yarn.lock
