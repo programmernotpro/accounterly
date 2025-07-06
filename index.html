@@ -3,27 +3,26 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Accountedly</title>
 </head>
 <body>
+    <h1>Accountedly</h1>
     <div id="main">
         <form id="expenses-form">
             <label for="income-input">Enter income</label>
                 <input id="income-input">
             <label for="expense-input">Enter expenses</label>
-                <input id="expense-input" placeholder="1,34,21">
+                <input id="expense-input" placeholder="e.g. 1,2,3">
             <label>Currency (optional)</label>
                 <input id="currency">
             <button type="submit">Submit</button>     
-        </form>
-        
+        </form>   
     </div>
     <div id="result-div"></div>
-
     <div id="graph-board">
         <canvas id="expense-results">
 
