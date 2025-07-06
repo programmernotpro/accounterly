@@ -7,7 +7,7 @@ input {
     display: flex;
     justify-content: center;
     padding: 10px;
-    border: 2px solid black;
+    border: 2px solid white;
 }
 
 p {
@@ -32,5 +32,6 @@ button[type="submit"]:hover {
 }
 
 body {
-    background: radial-gradient(circle at 60% 40%, #e0eafc 0%, #cfdef3 100%);
+    background: radial-gradient(circle at 60% 40%, #0f3d92 0%, #1b4889 50%);
+    color: white;
 }
