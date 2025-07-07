@@ -64,48 +64,46 @@ form.addEventListener("submit",(e) => {
         const avgExpense = expenseArr.reduce((a, b) => a + b, 0) / expenseArr.length;
         const lineLabels = expenseArr.map((_, i) => `Expense ${i + 1}`);
 
-        incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-results"), {
-            type: 'bar',
-            data: {
-                labels: lineLabels,
-                datasets: [
-                    {
-                        label: 'Income',
-                        data: Array(expenseArr.length).fill(incomeVal),
-                        borderColor: 'red',
-                        backgroundColor: 'red',
-                        fill: false,
-                        tension: 0.1
-                    },
-                    {
-                        label: 'Average Expense',
-                        data: Array(expenseArr.length).fill(avgExpense),
-                        borderColor: 'blue',
-                        backgroundColor: 'blue',
-                        fill: false,
-                        tension: 0.1
-                    }
-                ]
+incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-results"), {
+    type: 'bar',
+    data: {
+        labels: lineLabels,
+        datasets: [
+            {
+                label: 'Income',
+                data: Array(expenseArr.length).fill(incomeVal),
+                backgroundColor: 'red',
+                borderColor: 'red',
+                borderWidth: 1
             },
-            options: {
-                scales: {
-                    x: {
-                        ticks: { color: 'white' },
-                        grid: { color: 'white' }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: { color: 'white' },
-                        grid: { color: 'white' }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: { color: 'white' }
-                    }
-                }
+            {
+                label: 'Expense',
+                data: expenseArr,
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+                borderWidth: 1
             }
-        });
+        ]
+    },
+    options: {
+        scales: {
+            x: {
+                ticks: { color: 'white' },
+                grid: { color: 'white' }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: { color: 'white' },
+                grid: { color: 'white' }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: { color: 'white' }
+            }
+        }
+    }
+});
     } else {
         alert("Please enter a valid income (e.g. 1000) and expenses (e.g. 10,20,30)")
     }
