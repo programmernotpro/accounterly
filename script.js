@@ -67,18 +67,18 @@ form.addEventListener("submit",(e) => {
 incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-results"), {
     type: 'bar',
     data: {
-        labels: lineLabels,
+        labels: ['Income vs Avg Expense'],
         datasets: [
             {
                 label: 'Income',
-                data: Array(expenseArr.length).fill(incomeVal),
+                data: [incomeVal],
                 backgroundColor: 'red',
                 borderColor: 'red',
                 borderWidth: 1
             },
             {
-                label: 'Expense',
-                data: expenseArr,
+                label: 'Average Expense',
+                data: [avgExpense],
                 backgroundColor: 'blue',
                 borderColor: 'blue',
                 borderWidth: 1
@@ -100,10 +100,19 @@ incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-re
         plugins: {
             legend: {
                 labels: { color: 'white' }
+            },
+            title: {
+                display: true,
+                text: 'Income vs Average Expense',
+                color: 'white',
+                font: {
+                    size: 16
+                }
             }
         }
     }
 });
+
     } else {
         alert("Please enter a valid income (e.g. 1000) and expenses (e.g. 10,20,30)")
     }
