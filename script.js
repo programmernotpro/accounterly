@@ -19,11 +19,13 @@ form.addEventListener("submit",(e) => {
         let result = incomeVal - maxExpense;
         let resultPar = document.createElement("p");
         let currencyInputVal = document.getElementById("currency").value;
+        let ratioDiv = document.getElementById("ratio-div");
         resultPar.innerText = `According to your data, your maximum expense is ${result} ${currencyInputVal.trim().length > 0 ? currencyInputVal : "" } away from reaching your income!`
         document.getElementById("result-div").appendChild(resultPar);
         let remainingArr = expenseArr.map(exp => incomeVal - exp);
         if (expensesChart) expensesChart.destroy();
         if (incomeToExpensesChart) incomeToExpensesChart.destroy();
+        ratioDiv.innerHTML = "";
 
         expensesChart = new Chart(graph, {
             type:'bar',
@@ -64,21 +66,24 @@ form.addEventListener("submit",(e) => {
         const avgExpense = expenseArr.reduce((a, b) => a + b, 0) / expenseArr.length;
         const lineLabels = expenseArr.map((_, i) => `Expense ${i + 1}`);
 
+        ratioPar = document.createElement("p")
+        ratioPar.innerText = `Your income to average expense ratio is ${(incomeVal / avgExpense).toFixed(2)}.`
+        ratioDiv.appendChild(ratioPar);
 incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-results"), {
     type: 'bar',
     data: {
-        labels: lineLabels,
+        labels: ['Income vs Avg Expense'],
         datasets: [
             {
                 label: 'Income',
-                data: Array(expenseArr.length).fill(incomeVal),
+                data: [incomeVal],
                 backgroundColor: 'red',
                 borderColor: 'red',
                 borderWidth: 1
             },
             {
-                label: 'Expense',
-                data: expenseArr,
+                label: 'Average Expense',
+                data: [avgExpense],
                 backgroundColor: 'blue',
                 borderColor: 'blue',
                 borderWidth: 1
@@ -100,10 +105,19 @@ incomeToExpensesChart = new Chart(document.getElementById("income-to-expenses-re
         plugins: {
             legend: {
                 labels: { color: 'white' }
+            },
+            title: {
+                display: true,
+                text: 'Income vs Average Expense',
+                color: 'white',
+                font: {
+                    size: 16
+                }
             }
         }
     }
 });
+
     } else {
         alert("Please enter a valid income (e.g. 1000) and expenses (e.g. 10,20,30)")
     }
